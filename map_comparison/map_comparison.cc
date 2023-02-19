@@ -2,7 +2,9 @@
 #include <vector>
 
 /////////////////////////////////////////
-// INCLUDE NECESSARY HEADER FILES HERE //
+#include <map>
+#include <unordered_map>
+#include <iomanip>
 /////////////////////////////////////////
 
 using namespace std;
@@ -12,19 +14,19 @@ void func_map (vector<pair<int,string>>& items)
   cout << endl << "=== BEGIN func_map ===" << endl;
 
   ////////////////////////////////////////////////
-  // CREATE AN EMPTY map MAPPING int TO string. //
+  map<int,string> m;
   ////////////////////////////////////////////////
 
 
   ////////////////////////////////////////////
-  // USING A RANGE-BASED for(...) LOOP,     //
-  // INSERT EACH ITEM IN items INTO THE MAP //
+  for (auto i: items)
+    m.insert({i.first, i.second});
   ////////////////////////////////////////////
 
 
   //////////////////////////////////////////////
-  // USING A RANGE-BASED for(...) LOOP,       //
-  // PRINT OUT EACH KEY-VALUE PAIR IN THE MAP //
+  for (auto p: m)
+    cout << p.first << " " << p.second << endl;
   //////////////////////////////////////////////
 
 
@@ -36,7 +38,7 @@ void func_unordered_map (vector<pair<int,string>>& items)
   cout << endl << "=== BEGIN func_unordered_map ===" << endl;
 
   //////////////////////////////////////////////////////////
-  // CREATE AN EMPTY unordered_map MAPPING int TO string. //
+  unordered_map<int,string> um;
   //////////////////////////////////////////////////////////
 
 
@@ -49,12 +51,16 @@ void func_unordered_map (vector<pair<int,string>>& items)
   //   o  THE LOAD FACTOR                    //
   // IN THE FOLLOWING FORMAT:                //
   //   o  "[N,B,LF] = [3,10,0.4432]"         //
+  for (auto i: items){
+    um.insert({i.first, i.second});
+    cout << "[N,B,LF] = [" << um.size() << "," << um.bucket_count() << "," << setprecision(4) << um.load_factor() << "]" << endl;
+  }
   /////////////////////////////////////////////
 
 
   ///////////////////////////////////////////////
-  // USING A RANGE-BASED for(...) LOOP,        //
-  // PRINT OUT EACH KEY-VALUE PAIR IN THE MAP. //
+  for(auto p: um)
+    cout << p.first << " " << p.second << endl;
   ///////////////////////////////////////////////
 
 

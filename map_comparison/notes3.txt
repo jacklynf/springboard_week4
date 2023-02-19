@@ -1,0 +1,6 @@
+The load factor increases until the size of the unordered map is equal to the number of buckets. 
+After this, we see the load factor decrease and then begin increasing agian. This is because the 
+load factor is the ratio of nodes per bin, and as more nodes are added, the ratio goes up. Then,
+when more bins need to be added, the keys are rehashed, the container is made larger, and the keys
+are reassigned to new bins. When this happens, we now have (I think) double the bins, which is
+why we see the load_factor values drop before climbing again.

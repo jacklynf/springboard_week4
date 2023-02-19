@@ -1,0 +1,8 @@
+The difference in ordering suggests that the underlying data structures
+are quite different. As we discussed last week, the unordered map uses a
+hash function to assign a node to a bin. This is why the ordering appears
+random. The ordered map instead compares values as they're inserted. 
+cppreference.com shows the difference between unordered map and ordered
+map. You can see that the definition of ordered map includes a Compare
+class to determine the key sorting, whereas the unordered map uses a
+Hash class.
