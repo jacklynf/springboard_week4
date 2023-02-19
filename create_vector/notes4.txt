@@ -1,0 +1,9 @@
+The last line will not compile as is since it is not proper constructor or 
+assignment syntax. I think what this line of code is doing is it's declaring
+a vector of ints, but is then attempting to intitialize the vector as ints (rather
+than assigning ints to elements within the vector).
+
+To make this code run properly, it would depend on what you were looking to do. Quick
+fixes would be to either change the parentheses to curly braces if you'd like to initialize
+the vector with some values, or you could remove the equal sign and leave it as
+a constructor that would create a vector with 10 elements each assigned the value 5.
